@@ -45,4 +45,8 @@ public class Controller {
         advertencia.setHeaderText(mensaje);
         advertencia.show();
     }
+
+    public void salir(){
+        System. exit(0);
+    }
 }
