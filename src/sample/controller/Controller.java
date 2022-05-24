@@ -19,6 +19,15 @@ public class Controller {
 
 
 
+
+
+
+
+
+
+
+
+    //---------------METODOS NO LÓGICOS PARA LA INTERFAZ--------------------------------------------------
     //validamos los campos que por lo menos uno tenga algo, con cadena mayor a dos pero menor igual a tres
     public void validarCampos() {
         if (txtN1.getText().isEmpty() && txtN2.getText().isEmpty() && txtN3.getText().isEmpty() && txtN4.getText().isEmpty()){
@@ -36,7 +45,6 @@ public class Controller {
             }
         }
     }
-
     //variable global para mensajes
     String mensaje="";
     //ventana para errores, advertencias e info
@@ -45,8 +53,8 @@ public class Controller {
         advertencia.setHeaderText(mensaje);
         advertencia.show();
     }
-
+    //Metodo para el boton de salir
     public void salir(){
-        System. exit(0);
+        System. exit(1);
     }
 }
