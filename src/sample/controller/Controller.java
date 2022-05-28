@@ -15,7 +15,7 @@ public class Controller {
     //imagenes
     @FXML private ImageView img1;
     @FXML private ImageView imgPiano;
-
+//ffmpeg
 
 
 
@@ -31,13 +31,14 @@ public class Controller {
     //validamos los campos que por lo menos uno tenga algo, con cadena mayor a dos pero menor igual a tres
     public void validarCampos() {
         if (txtN1.getText().isEmpty() && txtN2.getText().isEmpty() && txtN3.getText().isEmpty() && txtN4.getText().isEmpty()){
-            mensaje = "Debes escribir al menos un acorde";
+            mensaje = "Debes escribir al menos una nota";
             mostrarAlerts(mensaje, Alert.AlertType.WARNING);
         }
         else{
             System.out.println("todo bn");
             if (txtN1.getText().length() >=2  || txtN2.getText().length() >=2 || txtN3.getText().length() >=2  || txtN4.getText().length()>=2 ){
                 System.out.println("paso filtro de longitud");
+                obtenerNotas();
             }
             else {
                 mensaje = "Alguna nota no tiene la longitud correcta :(";
@@ -45,6 +46,13 @@ public class Controller {
             }
         }
     }
+    //guardamos las notas obtenidas
+    public void obtenerNotas(){
+        //String notasComp = txtN1.getText() + txtN2.getText() + txtN3.getText() +txtN4.getText();
+        String notasComp = txtN1.getText() +" "+ txtN2.getText() +" "+ txtN3.getText() + " "+ txtN4.getText();
+        System.out.println(notasComp);
+    }
+
     //variable global para mensajes
     String mensaje="";
     //ventana para errores, advertencias e info
@@ -53,6 +61,7 @@ public class Controller {
         advertencia.setHeaderText(mensaje);
         advertencia.show();
     }
+
     //Metodo para el boton de salir
     public void salir(){
         System. exit(1);
