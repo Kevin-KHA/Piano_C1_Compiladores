@@ -1,4 +1,5 @@
 package sample.model;
+import java.util.ArrayList;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,8 +9,9 @@ public class Gramatica {
     public Gramatica() {
     }
 
-    public void separarCadena(String cadena) {
+    public String separarCadena(String cadena) {
         System.out.println("Gramatica: " + cadena);
+        String mensaje = "";
 
         // String notas[] = {"RE", "SOL", "LA", "MI", "SI", "DO", "FA", "vacio","#", "b"};
         TreeSet<String> alteracion = new TreeSet<String>();
@@ -37,14 +39,23 @@ public class Gramatica {
                 }
 
             }
-            if(existe)
-                System.out.println("palabra: ["+palabra+ "] tipos: "+tipos[posicion_tipo]);
+            if(existe){
+
+                String msj = "palabra: ["+palabra+ "] tipos: "+tipos[posicion_tipo]+"\n";
+                System.out.println(msj);
+                mensaje+= msj;
+            }
             else
-                if ( palabra.length() > 0 )
-                    System.out.println("palabra: ["+palabra+ "] No existe: ");
+                if ( palabra.length() > 0 ){
+                    String msj = "palabra: ["+palabra+ "] No existe \n";
+                    System.out.println(msj);
+                    mensaje+= msj;
+                }
+
 
         }
 
+        return mensaje;
 
     }
 

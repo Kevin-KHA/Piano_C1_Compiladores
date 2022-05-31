@@ -1,6 +1,7 @@
 package sample.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import sample.model.Gramatica;
@@ -13,6 +14,8 @@ public class Controller {
     @FXML private TextField txtN2;
     @FXML private TextField txtN3;
     @FXML private TextField txtN4;
+    @FXML private TextArea txtarea;
+
     //imagenes
     @FXML private ImageView img1;
     @FXML private ImageView imgPiano;
@@ -53,7 +56,8 @@ public class Controller {
         String notasComp = txtN1.getText() +" "+ txtN2.getText() +" "+ txtN3.getText() + " "+ txtN4.getText();
         System.out.println(notasComp);
         Gramatica gramatica = new Gramatica();
-        gramatica.separarCadena(notasComp);
+        String msj = gramatica.separarCadena(notasComp);
+        txtarea.setText(msj);
     }
 
     //variable global para mensajes

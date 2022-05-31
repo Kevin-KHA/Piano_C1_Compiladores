@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <children>
-      <TextField fx:id="txtN1" alignment="CENTER" layoutX="76.0" layoutY="112.0" prefHeight="42.0" prefWidth="73.0" promptText="🎶 DO" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: yellow;">
+      <ImageView fitHeight="606.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/img1.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtN1" alignment="CENTER" layoutX="76.0" layoutY="135.0" prefHeight="42.0" prefWidth="73.0" promptText="🎶 DO" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: yellow;">
          <font>
-            <Font size="13.0" />
+            <Font size="14.0" />
          </font></TextField>
-      <TextField fx:id="txtN4" alignment="CENTER" layoutX="548.0" layoutY="112.0" prefHeight="42.0" prefWidth="67.0" promptText="🎶 LA" style="-fx-background-color: white; -fx-border-color: purple; -fx-border-radius: 5px; -fx-background-radius: 5px;">
+      <TextField fx:id="txtN4" alignment="CENTER" layoutX="544.0" layoutY="135.0" prefHeight="42.0" prefWidth="67.0" promptText="🎶 LA" style="-fx-background-color: white; -fx-border-color: purple; -fx-border-radius: 5px; -fx-background-radius: 5px;">
          <font>
-            <Font size="13.0" />
+            <Font size="14.0" />
          </font></TextField>
-      <TextField fx:id="txtN2" alignment="CENTER" layoutX="231.0" layoutY="112.0" prefHeight="42.0" prefWidth="73.0" promptText="🎶 FA#" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: lightgreen;">
+      <TextField fx:id="txtN2" alignment="CENTER" layoutX="235.0" layoutY="135.0" prefHeight="42.0" prefWidth="73.0" promptText="🎶 FA#" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: lightgreen;">
          <font>
-            <Font size="13.0" />
+            <Font size="14.0" />
          </font></TextField>
-      <TextField fx:id="txtN3" alignment="CENTER" layoutX="391.0" layoutY="112.0" prefHeight="42.0" prefWidth="67.0" promptText="🎶 SIb" style="-fx-background-color: white; -fx-border-color: orange; -fx-border-radius: 5px; -fx-background-radius: 5px;">
+      <TextField fx:id="txtN3" alignment="CENTER" layoutX="389.0" layoutY="135.0" prefHeight="42.0" prefWidth="67.0" promptText="🎶 SIb" style="-fx-background-color: white; -fx-border-color: orange; -fx-border-radius: 5px; -fx-background-radius: 5px;">
          <font>
-            <Font size="13.0" />
+            <Font size="14.0" />
          </font></TextField>
-      <Button layoutX="678.0" layoutY="110.0" mnemonicParsing="false" onAction="#validarCampos" prefHeight="46.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: dodgerblue; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="▶ 🎹">
+      <Button layoutX="684.0" layoutY="125.0" mnemonicParsing="false" onAction="#validarCampos" prefHeight="46.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: dodgerblue; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="▶ 🎹">
          <font>
             <Font size="20.0" />
          </font></Button>
@@ -31,5 +39,10 @@
          <font>
             <Font size="24.0" />
          </font></Button>
+      <TextArea fx:id="txtarea" editable="false" layoutX="195.0" layoutY="193.0" prefHeight="139.0" prefWidth="411.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
    </children>
 </AnchorPane>
