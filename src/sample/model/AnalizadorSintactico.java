@@ -12,18 +12,18 @@ public class AnalizadorSintactico {
 
     public AnalizadorSintactico(){}
 
-    public void ejecutarAnalizador(String cadena) {
+    public boolean ejecutarAnalizador(String cadena) {
         String[] parts = cadena.split(" ");
         pila.push("ACORDE");
 
         ArrayList<String> separado =separarAletraciones(parts);
-        tablaPredictiva(separado);
+        return tablaPredictiva(separado);
 
     }
 
     public ArrayList<String> separarAletraciones(String[] parts){
         System.out.println("Separa alteracion: ");
-        String alteraciones[] = { "^(RE|SOL|LA)[(#|b)]", "^(MI|SI)[b]", "^(DO|FA)[#]" };
+        String alteraciones[] = { "^(RE|SOL|LA)[(#|b)]", "^(MI|SI)[(b|#)]", "^(DO|FA)[(#|b)]" };
         ArrayList<String> parteRefactorizada = new ArrayList<>();
         String[] datos;
         boolean agregado = false;
@@ -52,10 +52,25 @@ public class AnalizadorSintactico {
                     parteRefactorizada.add( alteracion);
                     agregado=true;
 
+                }else{
+                    System.out.println("No tiene alteracion correcta::: "+palabra);
+                    System.out.println("i ="+i);
+                    System.out.println(agregado);
+                    if(i == alteraciones.length - 1 && !agregado){
+                        System.out.println("No alteracion for::: "+palabra);
+                        System.out.println("Entra SI# --");
+                        //parteRefactorizada.add(palabra);
+                        agregado=false;
+                    }
                 }
             }
+            System.out.println("Entro match? :"+agregado);
             if(!agregado){
+                System.out.println("Agregado false: "+palabra);
                 parteRefactorizada.add(palabra);
+                agregado=false;
+            }
+            if(agregado){
                 agregado=false;
             }
         }
@@ -69,7 +84,7 @@ public class AnalizadorSintactico {
     }
 
 
-    public void tablaPredictiva(ArrayList<String> parts){
+    public boolean tablaPredictiva(ArrayList<String> parts){
         System.out.println("Tabla predictiva");
 
         String terminales[] = {"RE", "SOL", "LA", "MI", "SI", "DO", "FA", "#", "b", "$"};
@@ -80,37 +95,42 @@ public class AnalizadorSintactico {
         tabla.getTabla(tabla_matriz);
 
         System.out.println("\n\n\n>>>>>>>>>>>>>>>>>>>>>>> Logica tabla: <<<<<<<<<<<<<<<<<<<<<< ");
-        logica_tabla_pila(tabla_matriz, parts);
+        return logica_tabla_pila(tabla_matriz, parts);
 
     }
 
-    public void logica_tabla_pila( String[][] tabla_matriz, ArrayList<String> parts ){
+    public boolean logica_tabla_pila( String[][] tabla_matriz, ArrayList<String> parts ){
         ArrayList<String> terminales = new ArrayList<>(Arrays.asList("RE", "SOL", "LA", "MI", "SI", "DO", "FA", "#", "b", "$"));
         ArrayList<String> reglas = new ArrayList<>(Arrays.asList("ACORDE","Notas", "NotaTono", "NotaSemi1", "NotaSemi2", "AlteracionComp", "Alteracion#", "Alteracionb", "Resto"));
 
         System.out.println(">>>>>>>>>>>>>>>>>> cadena para tabla <<<<<<<<<<<<<<<<<<<<<<<<<<<< ");
         int banderaReglasConta = 0;
         int apuntador = 0;
+        String cadenaValidando ="";
             do{
-                System.out.println("Apunta: "+parts.get(apuntador)+"- Pila:"+pila);
+                System.out.println("Apunta: "+parts.get(apuntador)+" -> Pila:"+pila);
                 if(pila.peek().equals(parts.get(apuntador)) ){
                     System.out.println(parts.get(apuntador) + " : " +pila);
                     System.out.println("es terminal");
+                    cadenaValidando+= "  "+parts.get(apuntador);
                     apuntador++;
                     pila.pop();
                 }
                 else{
-                    //System.out.println("no es terminal");
-                    //System.out.println("Dato en pila: "+pila);
+
                     int fila = terminales.indexOf(parts.get(apuntador));
                     int columna = reglas.indexOf(pila.peek());
 
-                    //System.out.println("["+columna+", "+fila+"]");
-
                     String reglaDeMatriz = tabla_matriz[columna][fila];
 
+                    if(reglaDeMatriz==null){
+                        System.out.println(">> Error: "+reglaDeMatriz);
+                        cadenaValidando+= "  "+parts.get(apuntador);
+                        System.out.println(cadenaValidando + "<-");
+                        return false;
+                    }
+
                     if(reglaDeMatriz.equals("ε") || parts.get(apuntador).equals("$")){
-                        //System.out.println("Entra en $? :_ "+parts.get(apuntador));
                         pila.pop();
                     }else{
                         pila.pop();
@@ -123,6 +143,7 @@ public class AnalizadorSintactico {
                 }
             }while (!pila.isEmpty());
         System.out.println("pila vacia? "+pila.isEmpty());
+        return true;
 
     }
 
