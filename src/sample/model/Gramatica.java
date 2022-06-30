@@ -20,8 +20,9 @@ public class Gramatica {
 
         String[] parts = cadena.split(" ");
 
-        String expresion[] = { "^(RE|SOL|LA)(#|b)?" , "^(MI|SI)(b)?", "^(DO|FA)(#)?", "^(#|b){1,1}?" };
-        String tipos[] = {"Nota tono", "Nota semi 1", "Nota semi 2", "Alteracion"};
+        //String expresion[] = { "^(RE|SOL|LA)(#|b)?" , "^(MI|SI)(b)?", "^(DO|FA)(#)?", "^(#|b){1,1}?" };
+        String expresion[] = { "^(RE|SOL|LA)" , "^(MI|SI)", "^(DO|FA)", "^(RE|SOL|LA)(#|b)?", "^(MI|SI)(b)?", "^(DO|FA)(#)?" };
+        String tipos[] = {"Nota tono", "Nota semi 1", "Nota semi 2", "Nota tono con Alteracion", "Nota semi 1 con Alteracion", "Nota semi 2 con Alteracion"};
 
         for (String palabra:
              parts) {

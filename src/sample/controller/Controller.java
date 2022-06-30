@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import sample.model.AnalizadorSintactico;
 import sample.model.Gramatica;
 
 
@@ -55,6 +56,10 @@ public class Controller {
         //String notasComp = txtN1.getText() + txtN2.getText() + txtN3.getText() +txtN4.getText();
         String notasComp = txtN1.getText() +" "+ txtN2.getText() +" "+ txtN3.getText() + " "+ txtN4.getText();
         System.out.println(notasComp);
+        AnalizadorSintactico sintactico = new AnalizadorSintactico();
+
+        sintactico.ejecutarAnalizador(notasComp);
+
         Gramatica gramatica = new Gramatica();
         String msj = gramatica.separarCadena(notasComp);
         txtarea.setText(msj);
