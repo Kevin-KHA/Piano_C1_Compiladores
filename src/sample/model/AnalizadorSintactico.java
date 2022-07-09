@@ -109,37 +109,42 @@ public class AnalizadorSintactico {
         String cadenaValidando ="";
             do{
                 System.out.println("Apunta: "+parts.get(apuntador)+" -> Pila:"+pila);
-                if(pila.peek().equals(parts.get(apuntador)) ){
-                    System.out.println(parts.get(apuntador) + " : " +pila);
-                    System.out.println("es terminal");
-                    cadenaValidando+= "  "+parts.get(apuntador);
-                    apuntador++;
-                    pila.pop();
-                }
-                else{
-
-                    int fila = terminales.indexOf(parts.get(apuntador));
-                    int columna = reglas.indexOf(pila.peek());
-
-                    String reglaDeMatriz = tabla_matriz[columna][fila];
-
-                    if(reglaDeMatriz==null){
-                        System.out.println(">> Error: "+reglaDeMatriz);
+                try{
+                    if(pila.peek().equals(parts.get(apuntador)) ){
+                        System.out.println(parts.get(apuntador) + " : " +pila);
+                        System.out.println("es terminal");
                         cadenaValidando+= "  "+parts.get(apuntador);
-                        System.out.println(cadenaValidando + "<-");
-                        return false;
+                        apuntador++;
+                        pila.pop();
                     }
+                    else{
 
-                    if(reglaDeMatriz.equals("ε") || parts.get(apuntador).equals("$")){
-                        pila.pop();
-                    }else{
-                        pila.pop();
-                        String[] reglasNuevas = reglaDeMatriz.split(" ");
+                        int fila = terminales.indexOf(parts.get(apuntador));
+                        int columna = reglas.indexOf(pila.peek());
 
-                        for (int j = reglasNuevas.length; j > 0; j--) {
-                            pila.push(reglasNuevas[j-1]);
+                        String reglaDeMatriz = tabla_matriz[columna][fila];
+
+                        if(reglaDeMatriz==null){
+                            System.out.println(">> Error: "+reglaDeMatriz);
+                            cadenaValidando+= "  "+parts.get(apuntador);
+                            System.out.println(cadenaValidando + "<-");
+                            return false;
+                        }
+
+                        if(reglaDeMatriz.equals("ε") || parts.get(apuntador).equals("$")){
+                            pila.pop();
+                        }else{
+                            pila.pop();
+                            String[] reglasNuevas = reglaDeMatriz.split(" ");
+
+                            for (int j = reglasNuevas.length; j > 0; j--) {
+                                pila.push(reglasNuevas[j-1]);
+                            }
                         }
                     }
+                }catch (Exception e){
+                    System.out.println("Error en cadena");
+                    return false;
                 }
             }while (!pila.isEmpty());
         System.out.println("pila vacia? "+pila.isEmpty());
