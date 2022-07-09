@@ -58,11 +58,24 @@ public class Controller {
         System.out.println(notasComp);
         AnalizadorSintactico sintactico = new AnalizadorSintactico();
 
-        sintactico.ejecutarAnalizador(notasComp);
-
         Gramatica gramatica = new Gramatica();
-        String msj = gramatica.separarCadena(notasComp);
-        txtarea.setText(msj);
+        String[] msj = gramatica.separarCadena(notasComp);
+        txtarea.setText(msj[0]);
+
+        if(msj[1]=="true"){
+            //mostrarAlerts("Cadena correcta", Alert.AlertType.INFORMATION);
+
+        }else {
+            mostrarAlerts("Error gramatica", Alert.AlertType.ERROR);
+        }
+
+        boolean analizado = sintactico.ejecutarAnalizador(notasComp);
+        if(!analizado){
+            mostrarAlerts("Error sintactico", Alert.AlertType.ERROR);
+        }else {
+            mostrarAlerts("Cadena correcta", Alert.AlertType.INFORMATION);
+        }
+
     }
 
     //variable global para mensajes

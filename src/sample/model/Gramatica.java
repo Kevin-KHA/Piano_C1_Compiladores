@@ -9,7 +9,8 @@ public class Gramatica {
     public Gramatica() {
     }
 
-    public String separarCadena(String cadena) {
+    public String[] separarCadena(String cadena) {
+
         System.out.println("Gramatica: " + cadena);
         String mensaje = "";
 
@@ -22,8 +23,9 @@ public class Gramatica {
 
         //String expresion[] = { "^(RE|SOL|LA)(#|b)?" , "^(MI|SI)(b)?", "^(DO|FA)(#)?", "^(#|b){1,1}?" };
         String expresion[] = { "^(RE|SOL|LA)" , "^(MI|SI)", "^(DO|FA)", "^(RE|SOL|LA)(#|b)?", "^(MI|SI)(b)?", "^(DO|FA)(#)?" };
-        String tipos[] = {"Nota tono", "Nota semi 1", "Nota semi 2", "Nota tono con Alteracion", "Nota semi 1 con Alteracion", "Nota semi 2 con Alteracion"};
+        String tipos[] = {"Nota tono", "Nota semi 1", "Nota semi 2", "Nota tono con AlteracionComp", "Nota semi 1 con Alteracionb", "Nota semi 2 con Alteracion#"};
 
+        boolean cadenaCorrecta = true;
         for (String palabra:
              parts) {
             //System.out.println(palabra);
@@ -49,14 +51,15 @@ public class Gramatica {
             else
                 if ( palabra.length() > 0 ){
                     String msj = "palabra: ["+palabra+ "] No existe \n";
+                    //cadenaCorrecta = false;
                     System.out.println(msj);
                     mensaje+= msj;
                 }
 
 
         }
-
-        return mensaje;
+        String[] msj = {mensaje, String.valueOf(cadenaCorrecta)};
+        return msj;
 
     }
 
