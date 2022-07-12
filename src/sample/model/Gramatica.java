@@ -44,14 +44,14 @@ public class Gramatica {
             }
             if(existe){
 
-                String msj = "palabra: ["+palabra+ "] tipos: "+tipos[posicion_tipo]+"\n";
+                String msj = "Nota leída: ["+palabra+ "] tipos: "+tipos[posicion_tipo]+"\n";
                 System.out.println(msj);
                 mensaje+= msj;
             }
             else
                 if ( palabra.length() > 0 ){
-                    String msj = "palabra: ["+palabra+ "] No existe \n";
-                    //cadenaCorrecta = false;
+                    String msj = "Nota leída: ["+palabra+ "] No existe \n";
+                    cadenaCorrecta = false;
                     System.out.println(msj);
                     mensaje+= msj;
                 }

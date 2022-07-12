@@ -12,37 +12,90 @@
    <children>
       <ImageView fitHeight="606.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/img1.png" />
+            <Image url="@../image/1.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtN1" alignment="CENTER" layoutX="76.0" layoutY="135.0" prefHeight="42.0" prefWidth="73.0" promptText="🎶 DO" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: yellow;">
+      <ImageView fx:id="Do" fitHeight="71.0" fitWidth="73.0" layoutX="52.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Do.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtN1" alignment="CENTER" layoutX="62.0" layoutY="178.0" prefHeight="51.0" prefWidth="585.0" promptText="🎶 Ejem:  DO MIb SOL# SI" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: orange;">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TextField fx:id="txtN4" alignment="CENTER" layoutX="544.0" layoutY="135.0" prefHeight="42.0" prefWidth="67.0" promptText="🎶 LA" style="-fx-background-color: white; -fx-border-color: purple; -fx-border-radius: 5px; -fx-background-radius: 5px;">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <TextField fx:id="txtN2" alignment="CENTER" layoutX="235.0" layoutY="135.0" prefHeight="42.0" prefWidth="73.0" promptText="🎶 FA#" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: lightgreen;">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <TextField fx:id="txtN3" alignment="CENTER" layoutX="389.0" layoutY="135.0" prefHeight="42.0" prefWidth="67.0" promptText="🎶 SIb" style="-fx-background-color: white; -fx-border-color: orange; -fx-border-radius: 5px; -fx-background-radius: 5px;">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <Button layoutX="684.0" layoutY="125.0" mnemonicParsing="false" onAction="#validarCampos" prefHeight="46.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: dodgerblue; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="▶ 🎹">
+      <Button layoutX="689.0" layoutY="178.0" mnemonicParsing="false" onAction="#validarCampos" prefHeight="51.0" prefWidth="83.0" style="-fx-background-color: white; -fx-border-color: dodgerblue; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="▶ 🎹">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button layoutX="697.0" layoutY="522.0" mnemonicParsing="false" onAction="#salir" prefHeight="23.0" prefWidth="67.0" style="-fx-background-color: red; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="🔚" textFill="#fcfcfc">
+      <Button layoutX="6.0" layoutY="550.0" mnemonicParsing="false" onAction="#salir" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: red; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="🔚" textFill="#fcfcfc">
          <font>
-            <Font size="24.0" />
+            <Font size="21.0" />
          </font></Button>
-      <TextArea fx:id="txtarea" editable="false" layoutX="195.0" layoutY="193.0" prefHeight="139.0" prefWidth="411.0">
+      <TextArea fx:id="txtarea" editable="false" layoutX="457.0" layoutY="392.0" prefHeight="158.0" prefWidth="274.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextArea>
+      <ImageView fx:id="Mi" fitHeight="71.0" fitWidth="71.0" layoutX="140.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Mi.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Re" fitHeight="71.0" fitWidth="71.0" layoutX="98.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Re.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Fa" fitHeight="71.0" fitWidth="71.0" layoutX="183.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Fa.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Sol" fitHeight="71.0" fitWidth="71.0" layoutX="230.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Sol.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="La" fitHeight="71.0" fitWidth="71.0" layoutX="273.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/La.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Si" fitHeight="71.0" fitWidth="71.0" layoutX="319.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Si.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Do_Re" fitHeight="71.0" fitWidth="71.0" layoutX="77.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Do_Re.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Re_Mi" fitHeight="71.0" fitWidth="71.0" layoutX="123.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Re_Mi.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Fa_Sol" fitHeight="71.0" fitWidth="71.0" layoutX="202.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Fa_Sol.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Sol_La" fitHeight="71.0" fitWidth="83.0" layoutX="254.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/Sol_La.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="La_Si" fitHeight="77.0" fitWidth="71.0" layoutX="301.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../image/La_Si.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="699.0" layoutY="249.0" mnemonicParsing="false" onAction="#reset" prefHeight="51.0" prefWidth="64.0" style="-fx-background-color: white; -fx-border-color: green; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="⟲ ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
